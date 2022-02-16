@@ -1,18 +1,22 @@
 const fs = require('fs');
 
-const crearArchivo = (base = 5) => {
+const crearArchivo = (base = 5, listar = false) => {
     return new Promise((resolve, reject) => {
         let salida = "";
 
-        console.log("=========================");
-        console.log(`Tabla del ${base}`);
-        console.log("=========================");
+        if(listar) {
+            console.log("=========================");
+            console.log(`Tabla del ${base}`);
+            console.log("=========================");
+        }
 
         for(let i = 1; i <= 10; i++) {
             salida += `${base} x ${i} = ${base * i}\n`;
         }
 
-        console.log(salida);
+        if(listar) {
+            console.log(salida);
+        }
 
         /*fs.writeFile(`tabla-${base}.txt`, salida, (err) => {
             if(err) throw err;
@@ -30,18 +34,22 @@ const crearArchivo = (base = 5) => {
     });
 }
 
-const crearArchivo2 = async(base = 5) => {
+const crearArchivo2 = async(base = 5, listar = false) => {
     let salida = "";
 
-    console.log("=========================");
-    console.log(`Tabla del ${base}`);
-    console.log("=========================");
+    if(listar) {
+        console.log("=========================");
+        console.log(`Tabla del ${base}`);
+        console.log("=========================");
+    }
 
     for(let i = 1; i <= 10; i++) {
         salida += `${base} x ${i} = ${base * i}\n`;
     }
 
-    console.log(salida);
+    if(listar) {
+        console.log(salida);
+    }
 
     try {
         fs.writeFileSync(`tabla-${base}.txt`, salida);
