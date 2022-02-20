@@ -1,7 +1,7 @@
 const fs = require('fs');
 require('colors');
 
-const crearArchivo = (base = 5, listar = false) => {
+const crearArchivo = (base = 5, listar = false, hasta = 10) => {
     return new Promise((resolve, reject) => {
         let salida = "";
 
@@ -11,8 +11,8 @@ const crearArchivo = (base = 5, listar = false) => {
             console.log("=========================");
         }
 
-        for(let i = 1; i <= 10; i++) {
-            salida += `${base} x ${i} = ${(base * i).toString().green}\n`;
+        for(let i = 1; i <= hasta; i++) {
+            salida += `${base} x ${i} = ${base * i}\n`;
         }
 
         if(listar) {
@@ -35,7 +35,7 @@ const crearArchivo = (base = 5, listar = false) => {
     });
 }
 
-const crearArchivo2 = async(base = 5, listar = false) => {
+const crearArchivo2 = async(base = 5, listar = false, hasta = 10) => {
     let salida = "";
 
     if(listar) {
@@ -44,8 +44,8 @@ const crearArchivo2 = async(base = 5, listar = false) => {
         console.log("=========================");
     }
 
-    for(let i = 1; i <= 10; i++) {
-        salida += `${base} x ${i} = ${(base * i).toString().random}\n`;
+    for(let i = 1; i <= hasta; i++) {
+        salida += `${base} x ${i} = ${base * i}\n`;
     }
 
     if(listar) {

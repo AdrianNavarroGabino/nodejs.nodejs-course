@@ -5,10 +5,10 @@ require('colors');
 console.clear();
 
 
-crearArchivo(argv.b, argv.l)
+crearArchivo(argv.b, argv.l, argv.h)
     .then((filename) => console.log(`${filename} creado`.rainbow))
     .catch((err) => console.log(err.red));
 
-crearArchivo2(argv.b + 1, argv.l)
+crearArchivo2(argv.b + 1, argv.l, argv.h)
     .then((filename) => console.log(`${filename} creado`.trap))
     .catch((err) => console.log(err.magenta));
