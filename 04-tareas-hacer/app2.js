@@ -16,7 +16,7 @@ const main = async() => {
     const tareasDB = leerDB();
 
     if(tareasDB) {
-        
+        tareas.cargarTareasFromArray(tareasDB);
     }
 
     do {
