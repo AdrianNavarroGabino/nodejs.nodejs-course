@@ -29,7 +29,17 @@ class Tareas {
 
     listadoCompleto() {
         this.listadoArr
-            .forEach((tarea, id) => console.log(`${id + 1}. ${tarea.desc} :: ${tarea.completadoEn ? 'Completada'.green : 'Pendiente'.red}`))
+            .forEach(this.imprimirTarea);
+    }
+
+    listarPendientesCompletadas(completadas = true) {
+        this.listadoArr
+            .filter(tarea => !!tarea.completadoEn == completadas)
+            .forEach(this.imprimirTarea);
+    }
+
+    imprimirTarea(tarea, id) {
+        console.log(`${id + 1}. ${tarea.desc} :: ${tarea.completadoEn ? 'Completada'.green : 'Pendiente'.red}`)
     }
 }
 
