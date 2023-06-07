@@ -1,6 +1,6 @@
 require("colors");
 const { guardarDB, leerDB } = require("./helpers/guardarArchivo");
-const { inquirerMenu, pausa, leerInput, listadoTareasBorrar, confirmar } = require("./helpers/inquirer");
+const { inquirerMenu, pausa, leerInput, listadoTareasBorrar, confirmar, mostrarListadoChecklist } = require("./helpers/inquirer");
 const Tarea = require("./models/tarea");
 const Tareas = require("./models/tareas");
 
@@ -35,6 +35,10 @@ const main = async () => {
                 break;
             case '4':
                 tareas.listarPendientesCompletadas(false);
+                break;
+            case '5':
+                const ids = await mostrarListadoChecklist(tareas.listadoArr);
+                
                 break;
             case '6':
                 const id = await listadoTareasBorrar(tareas.listadoArr);
