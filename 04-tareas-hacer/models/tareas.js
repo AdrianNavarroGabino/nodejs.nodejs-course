@@ -47,6 +47,19 @@ class Tareas {
     imprimirTarea(tarea, id) {
         console.log(`${id + 1}. ${tarea.desc} :: ${tarea.completadoEn ? 'Completada'.green : 'Pendiente'.red}`)
     }
+
+    toggleCompletadas(ids = []) {
+        this.listadoArr.forEach((tarea) => {
+            const { id } = tarea;
+            if (ids.includes(id)) {
+                if (!tarea.completadoEn) {
+                    tarea.completadoEn = new Date().toISOString();
+                }
+            } else {
+                tarea.completadoEn = false;
+            }
+        });
+    }
 }
 
 module.exports = Tareas;
